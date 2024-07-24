@@ -882,7 +882,14 @@ require('lazy').setup({
       { "<leader>p", function() require('pyrepl').run_selected_lines() end, mode = "v", desc = "Run selected lines" }
     }
   },
-
+  {
+    "jbyuki/nabla.nvim",
+    config = function()
+    end,
+    keys = {
+      { "<leader>rm", function() require('nabla').popup() end, mode = "n", desc = "nabla popup" }
+    }
+  },
   {
     'yacineMTB/dingllm.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -895,7 +902,7 @@ require('lazy').setup({
       local function groq_replace()
         dingllm.invoke_llm_and_stream_into_editor({
           url = 'https://api.groq.com/openai/v1/chat/completions',
-          model = 'llama3-70b-8192',
+          model = 'llama-3.1-70b-versatile',
           api_key_name = 'GROQ_API_KEY',
           system_prompt = system_prompt,
           replace = true,
